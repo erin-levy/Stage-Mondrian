@@ -183,7 +183,7 @@ class Mondrian(pyglet.window.Window):
 mondrian = Mondrian(600, 700)
 
 print(
-    "Entrée: Générer un nouveau tableau \nG : Garder le tableau \nR : Restituer un tableau déjà existant \nFlèches : Déplacer le tableau \nClic gauche : Zoom \nClic droit : Dézoom"
+    "Entrée: Générer un nouveau tableau \nG : Garder le tableau \nR : Restaurer un tableau déjà existant \nFlèches : Déplacer le tableau \nClic gauche : Zoom \nClic droit : Dézoom"
 )
 
 pyglet.app.run()
