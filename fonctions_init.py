@@ -47,17 +47,17 @@ def pas_de_barre(coord_c1, rencontre, dico_c2, place_prise_par_trait, fin_c2, ma
 
     deb_c1 = min(coord_c1)
     fin_c1 = max(coord_c1)
-    print(place_prise_par_trait)
+
+    # print(place_prise_par_trait)
+
     if place_prise_par_trait[0] != 0:
         coord_encore_nouv = randrange(int(deb_c1 + marge), int(fin_c1 - marge))
         coord_c1.append(coord_encore_nouv)
         rencontre[coord_encore_nouv] = [0, min(place_prise_par_trait)]
         dico_c2[coord_encore_nouv] = [0, min(place_prise_par_trait)]
-        print("ligne 0")
 
     if place_prise_par_trait[1] != fin_c2:
         coord_encore_nouv = randrange(int(deb_c1 + marge), int(fin_c1 - marge))
         coord_c1.append(coord_encore_nouv)
         rencontre[coord_encore_nouv] = [max(place_prise_par_trait), fin_c2]
         dico_c2[coord_encore_nouv] = [max(place_prise_par_trait), fin_c2]
-        print("ligne bord")
