@@ -67,7 +67,7 @@ class Mondrian(pyglet.window.Window):
 
         self.couleurs4.zoom(self.x, self.y, self.grandissement)
 
-        self.tps = dt
+        self.tps += dt
         if self.tps >= 5:
             f = open("historique" + ".json", "w")
             json.dump(
