@@ -20,7 +20,7 @@ class Couleurs4:
 
         self.carrés = []
 
-        nbr_points_max = len(dico_y) + len(dico_x) + 1
+        nbr_points_max = (len(dico_y) + len(dico_x) + 1)*2
 
         nbr_points = randrange(nbr_points_max)
 

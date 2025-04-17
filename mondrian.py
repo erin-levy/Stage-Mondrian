@@ -21,6 +21,8 @@ class Mondrian(pyglet.window.Window):
     def __init__(self, width, height):
         super().__init__(width, height, "Tableau Mondrian", resizable=True)
 
+        self.tps=0
+
         self.width = width
         self.height = height
 
@@ -64,6 +66,29 @@ class Mondrian(pyglet.window.Window):
         self.grille4.zoom(self.x, self.y, self.grandissement)
 
         self.couleurs4.zoom(self.x, self.y, self.grandissement)
+
+        self.tps = dt
+        if self.tps >= 5:
+            f = open("historique" + ".json", "w")
+            json.dump(
+                {
+                    "dim_fen": {"width": self.width, "height": self.height},
+                    "verti": self.grille4.dicos_x,
+                    "hori": self.grille4.dicos_y,
+                    "carrés": self.couleurs4.carrés,
+                    "y possibles": self.grille4.possibilités_début_y,
+                    "où il faut passer": self.grille4.ou_il_faut_passer,
+                    "largeur_trait": self.grille4.largeur_trait,
+                },
+                f,
+            )
+            debut = time.time()
+            self.grille4.__init__(self.width, self.height)
+            self.couleurs4.__init__(self.grille4.dicos_x[-1], self.grille4.dicos_y[-1])
+            fin = time.time()
+            print("temps=", fin - debut)
+            self.tps = 0
+
 
         # self.grille4.prolongement()
 
@@ -180,10 +205,11 @@ class Mondrian(pyglet.window.Window):
         # self.grille4bis.draw()
 
 
-mondrian = Mondrian(600, 700)
+mondrian = Mondrian(1000, 800)
 
 print(
     "Entrée: Générer un nouveau tableau \nG : Garder le tableau \nR : Restaurer un tableau déjà existant \nFlèches : Déplacer le tableau \nClic gauche : Zoom \nClic droit : Dézoom"
 )
+
 
 pyglet.app.run()

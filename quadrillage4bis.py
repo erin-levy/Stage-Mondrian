@@ -7,8 +7,8 @@ class Grille4bis:
 
         self.quadrillage = []
 
-        self.nbr_x = randrange(2, 11)
-        self.nbr_y = randrange(2, 11)
+        self.nbr_x = randrange(6, 21)
+        self.nbr_y = randrange(6, 21)
         marge = 50
 
         self.coord_y = [0, height]
